@@ -69,6 +69,7 @@ nnoremap <leader>tv :TestVisit<CR>
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
+vmap <leader>rr <Plug>SendSelectionToTmux
 
 noremap <Leader>s :update<CR>
 
