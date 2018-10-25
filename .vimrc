@@ -19,6 +19,10 @@ call minpac#add('mileszs/ack.vim')
 call minpac#add('elixir-editors/vim-elixir')
 call minpac#add('janko-m/vim-test')
 call minpac#add('jgdavey/tslime.vim')
+call minpac#add('ElmCast/elm-vim')
+call minpac#add('mhinz/vim-mix-format')
+call minpac#add('slashmili/alchemist.vim')
+call minpac#add('ntpeters/vim-better-whitespace')
 "
 " " Load the plugins right now. (optional)
 
@@ -69,7 +73,30 @@ nnoremap <leader>tv :TestVisit<CR>
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 
-vmap <leader>rr <Plug>SendSelectionToTmux
+vmap <leader>gt <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 
-noremap <Leader>s :update<CR>
+" Save \s
+noremap <Leader>s :write<CR>
+
+" the silver searcher
+let g:ackprg = 'ag --vimgrep'
+
+" Create directories when doesn't exist on save
+function s:MkNonExDir(file, buf)
+  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+    let dir=fnamemodify(a:file, ':h')
+    if !isdirectory(dir)
+      call mkdir(dir, 'p')
+    endif
+  endif
+endfunction
+
+augroup BWCCreateDir
+  autocmd!
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+
+" Remove trailing whitespace on save
+let g:strip_whitespace_on_save = 1
 
