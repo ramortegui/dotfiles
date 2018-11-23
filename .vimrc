@@ -23,6 +23,7 @@ call minpac#add('ElmCast/elm-vim')
 call minpac#add('mhinz/vim-mix-format')
 call minpac#add('slashmili/alchemist.vim')
 call minpac#add('ntpeters/vim-better-whitespace')
+call minpac#add('whatyouhide/vim-gotham')
 "
 " " Load the plugins right now. (optional)
 
@@ -100,3 +101,5 @@ augroup END
 " Remove trailing whitespace on save
 let g:strip_whitespace_on_save = 1
 
+" Git commits configs
+autocmd Filetype gitcommit setlocal spell textwidth=72
