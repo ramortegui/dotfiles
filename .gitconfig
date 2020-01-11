@@ -1,0 +1,10 @@
+[user]
+  email = ruben.amortegui@gmail.com
+  name = ruben.amortegui@gmail.com
+[core]
+  editor = vim
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
