@@ -24,6 +24,8 @@ call minpac#add('mhinz/vim-mix-format')
 call minpac#add('slashmili/alchemist.vim')
 call minpac#add('ntpeters/vim-better-whitespace')
 call minpac#add('whatyouhide/vim-gotham')
+call minpac#add('sotte/presenting.vim')
+
 "
 " " Load the plugins right now. (optional)
 
